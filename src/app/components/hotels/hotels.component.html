@@ -1,12 +1,13 @@
 
-  <div class="element-bg-img"><img src='{{bigUrl}}' alt="" class="img-responsive"> </div>
+  <div class="element-bg-img"><img src='{{bigUrl}}' alt="" class="img-responsive" appImglarge> </div>
   <div class="element-left-bottom">
     <div class="ele-strip">
       <ul>
-        <li><a href="#">Hotel</a></li>
-        <li><a href="#">Fishing</a></li>
-        <li><a href="#">Tours</a></li>
-        <li class="anc-bor"><a href="#">Weather</a></li>
+        <li><input type="text" (input) = "filtered($event.target.value)"></li><br><br>
+        <li><a href="#" (click)="filterByCity('')">Hotels</a></li>
+        <li><a href="#" (click)="filterByCity('Kiev')">Kiev</a></li>
+        <li><a href="#" (click)="filterByCity('Kharkov')">Kharkov</a></li>
+        <li class="anc-bor"><a href="#" (click)="filterByCity('Odessa')">Odessa</a></li>
       </ul>
     </div>
     <div class="village">
@@ -14,7 +15,7 @@
       <span class="line"> </span>
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
-          <div class="activity-row" *ngFor="let hotel of HotelBase" (click)="onHotel(hotel)" >
+          <div class="activity-row" *ngFor="let hotel of HotelBase | hotelbyclick : city" (click)="onHotel(hotel)" >
             <div class="activity-desc">
               <h5>{{hotel.name}}</h5>
               <p>{{hotel.desc01}}</p>

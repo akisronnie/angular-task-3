@@ -19,7 +19,7 @@ public  selectedHotel: any = {
     followers : 321,
     following : 12234};
 
-  qwert(x) { console.log('dfdf '+ x.imgUrl01);
+  qwert(x) { 
 this.selectedHotel = x; }
 }
 
